@@ -23,8 +23,12 @@ public class ImageAdapter extends BaseAdapter {
      * this should be done after the images are renamed
      */
     private Integer[] mThumbsIds = {
-            0, 1,
-            2, 3
+            R.drawable.brace, R.drawable.circle,
+            R.drawable.clamp, R.drawable.clubfoot_final,
+            R.drawable.gearbox, R.drawable.glasses,
+            R.drawable.scissors, R.drawable.misc_parts,
+            R.drawable.respirator, R.drawable.speculum,
+            R.drawable.tweezers
     };
 
     public int getCount() {
@@ -45,7 +49,7 @@ public class ImageAdapter extends BaseAdapter {
         if (convertView == null) {
             // If the view is not recycled, initialize it
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+            imageView.setLayoutParams(new GridView.LayoutParams(500, 500));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
         } else {
