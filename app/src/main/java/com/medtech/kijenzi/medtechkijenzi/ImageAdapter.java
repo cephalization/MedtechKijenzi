@@ -7,38 +7,49 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 /**
  * Created by tony on 2/19/17.
  */
 
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;
+    private ArrayList<PartInfo> parts;
 
-    public ImageAdapter(Context c) {
+    public ImageAdapter(Context c, ArrayList<PartInfo> parts) {
         mContext = c;
+        this.parts = parts;
     }
 
     /**
-     * This array needs to be populated with the images on R.drawable,
-     * this should be done after the images are renamed
+     * Retrieve the number of parts loaded into the ImageAdapter
+     * @return
      */
-    private Integer[] mThumbsIds = {
-            R.drawable.brace, R.drawable.circle,
-            R.drawable.clamp, R.drawable.clubfoot_final,
-            R.drawable.gearbox, R.drawable.glasses,
-            R.drawable.scissors, R.drawable.misc_parts,
-            R.drawable.respirator, R.drawable.speculum,
-            R.drawable.tweezers
-    };
-
     public int getCount() {
-        return mThumbsIds.length;
+        return parts.size();
     }
 
-    public Object getItem(int position) {
-        return null;
+    /**
+     * Retrieve the PartInfo at a given location
+     * @param position
+     * @return
+     */
+    public PartInfo getItem(int position) {
+        return parts.get(position);
     }
 
+    /**
+     * Provide ImageAdapter with a new list of par
+     * @param parts
+     */
+    public void updateParts(ArrayList<PartInfo> parts) { this.parts = parts;}
+
+    /**
+     * OVERLOADED FUNCTION, NO USE RIGHT NOW
+     * @param position
+     * @return
+     */
     public long getItemId(int position) {
         return 0;
     }
@@ -46,6 +57,7 @@ public class ImageAdapter extends BaseAdapter {
     // Create a new ImageView for each item in the adaptor
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
+        PartInfo part = parts.get(position);
         if (convertView == null) {
             // If the view is not recycled, initialize it
             imageView = new ImageView(mContext);
@@ -56,7 +68,7 @@ public class ImageAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        imageView.setImageResource(mThumbsIds[position]);
+        imageView.setImageResource(part.getThumbId());
         return imageView;
     }
 
