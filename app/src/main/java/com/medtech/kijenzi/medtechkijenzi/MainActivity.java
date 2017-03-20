@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         GridView mainGrid = (GridView) findViewById(R.id.gridview);
 
         // Statically define list of parts
-        List<PartInfo> partsListTemp = new ArrayList<PartInfo>();
+        ArrayList<PartInfo> partsListTemp = new ArrayList<PartInfo>();
 
         PartInfo brace = new PartInfo("Brace", R.drawable.brace, "gcode", "Fix fer yer arm when it booboo");
         partsListTemp.add(brace);
@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
         PartInfo tweezers = new PartInfo("Tweezers", R.drawable.tweezers, "gcode", "Fix fer yer arm when it booboo");
         partsListTemp.add(tweezers);
 
-        final List<PartInfo> partsList = partsListTemp;
+        final ArrayList<PartInfo> partsList = partsListTemp;
 
-        mainGrid.setAdapter(new ImageAdapter(this));
+        mainGrid.setAdapter(new ImageAdapter(this, partsList));
         final Context context = getBaseContext();
         mainGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
