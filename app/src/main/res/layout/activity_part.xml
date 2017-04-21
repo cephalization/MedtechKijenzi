@@ -10,4 +10,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.medtech.kijenzi.medtechkijenzi.PartActivity">
 
+    <TextView
+        android:id="@+id/PartNameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
