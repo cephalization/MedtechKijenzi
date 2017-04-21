@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MedtechKijenzi</string>
+    <string name="partImageContentDescription">Part Image</string>
 </resources>
